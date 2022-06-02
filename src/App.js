@@ -31,6 +31,7 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
+      {/* TODO: use a loop */}
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
