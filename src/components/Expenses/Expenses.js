@@ -8,7 +8,9 @@ import "./Expenses.css";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2019");
-  const expenses = props.items;
+  const expenses = props.items.filter((expense) => {
+    return expense.date.getFullYear() === parseInt(filteredYear);
+  });
 
   const changeFilteredYearHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
@@ -25,6 +27,7 @@ const Expenses = (props) => {
           <div>
             {expenses.map((expense) => (
               <ExpenseItem
+                key={expense.id}
                 title={expense.title}
                 amount={expense.amount}
                 date={expense.date}
